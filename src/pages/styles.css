@@ -1,0 +1,86 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', 'sans-serif';
+}
+
+.main{
+    display: grid;
+    justify-content: center;
+}
+.main-section{
+    height: 100vh;
+    height: 94svh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section{
+    background-image: url(../images/stock-1.jpg);
+    background-size: cover;
+    color: white;
+    font-size: 26px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-section{
+    display: grid;
+    align-content: center;
+}
+.services-section h1{
+    justify-self: center;
+}
+.services-container{
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 3rem;
+    padding: 3rem;
+    justify-content: center;
+}
+
+.about-us-container{
+    gap: 3rem;
+    justify-self: center;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    align-items: center;
+}
+.about-us-container h1{
+    grid-column: 1/-1;
+    justify-self: center
+}
+
+.calendly-section h1{
+    text-align: center;
+}
+
+
+footer{
+    /* position: relative; */
+    bottom: 0;
+    background-color: black;
+    /* width: 100%; */
+    display: grid;
+    justify-content: center;
+}
+footer ul{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 20px;
+    padding: 1.2rem;
+}
+footer ul li a{
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+    transition: 0.6s;
+}
+footer ul li a:hover{
+    color:aqua;
+}
