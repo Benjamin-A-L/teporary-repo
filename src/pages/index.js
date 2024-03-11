@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Navbar } from "./nav"
+import { Navbar } from "../components/nav"
 import './styles.css'
 import { Helmet } from "react-helmet";
 import { StaticImage } from "gatsby-plugin-image";
