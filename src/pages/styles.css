@@ -11,53 +11,123 @@
 }
 .main-section{
     height: 100vh;
-    height: 94svh;
+    height: 100svh;
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
 .hero-section{
-    background-image: url(../images/stock-1.jpg);
-    background-size: cover;
     color: white;
     font-size: 26px;
     display: grid;
+    gap: 2rem;
     justify-content: center;
+    align-content: center;
+}
+.hero-bg-img-container{
+    width: 70vw;
+    height: 70vh;
+    background-image: url(../images/stock-1.jpg);
+    background-size: cover;
+    border-radius: 8vw 0rem 8vw 0rem;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
     align-items: center;
+
+}
+.cta-header-container{
+    grid-column: 1/9;
+    display: grid;
+    justify-items: center;
+    gap: 0.7rem;
+
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 4rem;
+    border-radius:  0rem 1rem 1rem 0rem;
+}
+.cta-header-container button{
+    width: auto;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+    /* background-color: red; */
+    border-radius: 3px;
+    font-size: 15px;
 }
 
 .services-section{
     display: grid;
     align-content: center;
+    margin-top: 4rem;
 }
 .services-section h1{
     justify-self: center;
+    grid-column: 1/-1;
 }
 .services-container{
     max-width: 1000px;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     padding: 3rem;
     justify-content: center;
 }
+.services-container div{
+    padding: 1rem 1.6rem;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4);
+    /* border: solid black 1px; */
+    text-align: justify;
+    display: grid;
+    gap: 20px;
+}
+
+.slide-L-target{
+    transform: translateX(clamp(-160px, -20px + -6vw, -24px));
+    opacity: 0;
+    transition: 1.2s;
+    border-radius: 2vw 0px 2vw 0px;
+}
+.slide-R-target{
+    transform: translateX(clamp(24px, 20px + 6vw, 160px));
+    opacity: 0;
+    transition: 1.2s;
+    border-radius: 0px 2vw 0px 2vw;
+}
+.slide-L-on{
+    transform: translateX(0);
+    opacity: 1;
+}
+.slide-R-on{
+    transform: translateX(0);
+    opacity: 1;
+}
+
 
 .about-us-container{
     gap: 3rem;
     justify-self: center;
     max-width: 1000px;
     display: grid;
-    grid-template-columns: 5fr 2fr;
+    grid-template-columns: 4fr 3fr;
     align-items: center;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 0.4rem;
+    font-size: clamp(12px, 6px + 1vw, 19px);
 }
 .about-us-container h1{
     grid-column: 1/-1;
-    justify-self: center
+    justify-self: center;
 }
+
 
 .calendly-section h1{
     text-align: center;
+    margin-top: 4rem;
 }
 
 

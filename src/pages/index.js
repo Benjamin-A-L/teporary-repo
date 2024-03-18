@@ -1,18 +1,61 @@
-import * as React from "react"
-import { Navbar } from "../components/nav"
+import React, { useEffect } from "react"
+import { MNavbar, Navbar } from "../components/nav"
 import './styles.css'
 import { Helmet } from "react-helmet";
 import { StaticImage } from "gatsby-plugin-image";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons"
+import scrollTo from "gatsby-plugin-smoothscroll";
+
 
 const IndexPage = () => {
+  
+  // Add this function to your Gatsby site, for example in a custom hook or a utility file
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.target.classList.contains('slide-L-target')) {
+          entry.target.classList.add('slide-L-on', entry.isIntersecting);
+        } else if (entry.target.classList.contains('slide-R-target')) {
+          entry.target.classList.add('slide-R-on', entry.isIntersecting);
+        }
+        if (!entry.isIntersecting) {
+          entry.target.classList.remove('slide-L-on', 'slide-R-on');
+        }
+      });
+    },{ threshold: 0.7 }); 
+  
+    const domTargets = [
+      ...document.querySelectorAll('.slide-L-target'),
+      ...document.querySelectorAll('.slide-R-target'),
+    ];
+  
+    domTargets.forEach((target) => {
+      observer.observe(target);
+    });
+  
+    return () => {
+      domTargets.forEach((target) => {
+        observer.unobserve(target);
+      });
+    };
+  }, []);
+  
+
   return (
     <main>
       <Navbar></Navbar>
+      <MNavbar></MNavbar>
       <section className='hero-section main-section'>
-        <h1>Cabrera y Asociados</h1>
+        <div class="hero-bg-img-container">
+          <div class="cta-header-container">
+            <h1>Cabrera y Asociados</h1>
+            <p className="header-subtitle">Proteja sus Activos y Negocio con Profesionales</p>
+            <button className="header-cta-btn" onClick={()=>scrollTo('.calendly-section')}>llamada</button>
+          </div>
+        </div>
       </section>
 
 
@@ -20,13 +63,29 @@ const IndexPage = () => {
         <h1>Servicios</h1>
         
         <div className="services-container">
-          <div>
-            <h2>servicio 1</h2>
-            <p>egestas quis ipsum. Sed sed risus pretium quam. Turpis egestas sed tempus urna et pharetra. Dolor sit amet consectetur adipiscing. Enim diam vulputate ut pharetra sit. Sed pulvinar proin gravida hendrerit lectus. In hac habitasse platea dictumst vestibulum rhoncus </p>
+          <div className="slide-L-target">
+              <h1>Planificación Tributaria</h1>
+              <p>Trabajamos para optimizar y minimizar legalmente su carga tributaria, con una asesoria tributaria y una adecuada planificación que evitará las perdidas por doble tributación, además de la correcta aplicación de los beneficios que les entregan los incentivos y exenciones tributarias aplicadas a las singularidades de su empresa.</p>
           </div>
-          <div>
-            <h2>servicio 2</h2>
-            <p>lectus sit amet est. Tincidunt ornare massa eget egestas purus. Commodo viverra maecenas accumsan lacus vel facilisis volutpat. Suspendisse interdum consectetur libero id faucibus nisl tincidunt eget. Turpis massa tincidunt dui ut ornare lectus sit amet est. </p>
+
+          <div className="slide-R-target">
+              <h1>Asesoria tributaria</h1>
+              <p>Cumplir es el primer paso. Asistimos a nuestros clientes en la revisión y/o preparación de sus declaraciones de impuestos anuales y sus respectivas declaraciones juradas, así como también en sus declaraciones de impuestos mensuales, que buscan la correcta presentación y pago de los impuestos resultantes de las operaciones financieras.</p>
+          </div>
+
+          <div className="slide-L-target">
+              <h1>Acompañamiento Tributario</h1>
+              <p>Tener una buena planificación tributaria es fundamental para que los emprendedor puedan tomar decisiones y estas sean las correctas Gran Pyme te acompaña en todo el proceso para que estés tranquilo en tus finanzas. ¡Dale un gran impulso a tu empresa!</p>
+          </div>
+
+          <div className="slide-R-target">
+              <h1>Normalización Tributaria</h1>
+              <p>Podemos ayudarte si dejaste inconclusa las obligaciones con el Servicio de Impuestos Internos (SII) y quieres normalizar tu situación, nos encargamos de la re-construcción de la información contable, la generación de los documentos pendientes y el envío de la información al sitio web del SII.</p>
+          </div>
+          <div className="slide-L-target">
+
+            <h1>Asesoría Contable</h1>
+            <p>Nuestros planes y asesoria contable se ajustan a la medida de tus necesidades como empresa  y de acuerdo a los requerimientos que tengas. Los valores de los planes varían según la cantidad de trabajadores.</p>
           </div>
         </div>
       </section>
