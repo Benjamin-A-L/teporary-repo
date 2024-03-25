@@ -20,9 +20,11 @@ const IndexPage = () => {
           entry.target.classList.add('slide-L-on', entry.isIntersecting);
         } else if (entry.target.classList.contains('slide-R-target')) {
           entry.target.classList.add('slide-R-on', entry.isIntersecting);
+        } else if (entry.target.classList.contains('fade-target')){
+          entry.target.classList.add('fade-active', entry.isIntersecting);
         }
         if (!entry.isIntersecting) {
-          entry.target.classList.remove('slide-L-on', 'slide-R-on');
+          entry.target.classList.remove('slide-L-on', 'slide-R-on', 'fade-active');
         }
       });
     },{ threshold: 0.7 }); 
@@ -30,6 +32,7 @@ const IndexPage = () => {
     const domTargets = [
       ...document.querySelectorAll('.slide-L-target'),
       ...document.querySelectorAll('.slide-R-target'),
+      ...document.querySelectorAll('.fade-target'),
     ];
   
     domTargets.forEach((target) => {
@@ -51,7 +54,7 @@ const IndexPage = () => {
       <section className='hero-section main-section'>
         <div class="hero-bg-img-container">
           <div class="cta-header-container">
-            <h1>Cabrera y Asociados</h1>
+            <h1>Cabrera & Asociados</h1>
             <p className="header-subtitle">Proteja sus Activos y Negocio con Profesionales</p>
             <button className="header-cta-btn" onClick={()=>scrollTo('.calendly-section')}>llamada</button>
           </div>
@@ -59,7 +62,7 @@ const IndexPage = () => {
       </section>
 
 
-      <section className='services-section main-section'>
+      <section className='services-section'>
         <h1>Servicios</h1>
         
         <div className="services-container">
@@ -92,10 +95,27 @@ const IndexPage = () => {
 
 
       <section className='about-us-section main-section'>
-        <div className="about-us-container">
+        <div className="about-us-container fade-target">
           <h1>Sobre Nosotros</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu felis bibendum ut tristique et egestas quis ipsum suspendisse. Non tellus orci ac auctor augue mauris. Faucibus nisl tincidunt eget nullam non nisi est. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Quis vel eros donec ac. Blandit cursus risus at ultrices mi tempus. Ornare quam viverra orci sagittis eu volutpat. Varius quam quisque id diam. A diam sollicitudin tempor id. Commodo ullamcorper a lacus vestibulum sed arcu non.</p>
-          <StaticImage src='../images/stock-2.jpg'></StaticImage>
+          <p>En Cabrera & Asociados nos preocupamos de que su empresa optimice su información, de acuerdo a las normas Contables, Tributarias y Laborales, para que usted, cuente con la información necesaria requerida por sus dueños, accionistas o socios, también requerida por, Bancos, Proveedores, Clientes, el SII, Dirección del Trabajo, Banco Central y otros organismos, que permiten dar fe de resultados confiables, de gestión en la empresa y de un adecuado cumplimiento legal.
+          </p>
+          <p className="about-us-p-2">
+          Cabrera & Asociados, posee una vasta experiencia asesorando a PYME y Grandes Empresas, en los temas Financieros Contables, Tributarios y Laborales, como son entre otros:
+            <br/>
+            <br/>
+            <ul>
+              <li>Actualización y presentación de Estados Financieros.</li>
+              <li>Auditorias Financieras. </li>
+              <li>Implementar IFRS. </li>
+              <li>Iniciación de actividades y término de giro. </li>
+              <li>Planificación y Diagnóstico Tributario.</li>
+              <li>Diagnósticos de cumplimientos laborales. </li>
+              <li>Coaching técnico para su personal.</li>
+              <li>Selección, </li>
+              <li>Capacitación, control y finiquitos del personal.</li>
+            </ul>
+          </p>
+        <StaticImage className="about-us-image" src='../images/bull.jpg'></StaticImage>
         </div>
       </section>
 
@@ -113,11 +133,28 @@ const IndexPage = () => {
       </section>
 
       <footer>
+        <ul className='locations-container'>
+          <h3>Oficinas:</h3>
+          <p>Santiago: </p>
+          <li>Carmen 110 - 1 cuadra Sii </li>
+          <p>Concepción: </p>
+          <li>San Martin 42 Poniente Edificio Doña </li>
+          <li>Paula Of.305 3er Piso </li>
+        </ul>
+
         <ul className="social-media-container">
           <li className="li-Instagram"><a target='_blank' rel="noreferrer" href="https://www.instagram.com/ornela_bienestarysalud/"><FontAwesomeIcon className='sm-icon' icon={faInstagram} /> Instagram</a></li>
           <li className="li-Facebook"><a target='_blank' rel="noreferrer" href="https://www.instagram.com/ornela_bienestarysalud/"><FontAwesomeIcon className='sm-icon' icon={faFacebook} /> Facebook</a></li>
           <li className="li-LinkedIn"><a target='_blank' rel="noreferrer" href="https://www.instagram.com/ornela_bienestarysalud/"><FontAwesomeIcon className='sm-icon' icon={faLinkedin} /> LinkedIn</a></li>
         </ul>
+
+        <div className='other-contacts'>
+          <p>Fono:</p> 
+          <p>Santiago:+56 9 5421 2924</p> 
+          <p>Concepción:+56 9 8775 2246</p>
+          <a type='email' rel="noreferrer" target='_blank' href="https://www.cabrerayasociados.cl">www.cabrerayasociados.cl</a>
+          <a type="email" rel="noreferrer" target='_blank' href="mailto:rcabreraasesoria@gmail.com">rcabreraasesoria@gmail.com</a>
+        </div>
       </footer>
     </main>
   )

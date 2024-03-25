@@ -4,7 +4,9 @@
     box-sizing: border-box;
     font-family: 'Helvetica', 'sans-serif';
 }
-
+html{
+    overflow-x: hidden;
+}
 .main{
     display: grid;
     justify-content: center;
@@ -26,55 +28,83 @@
     align-content: center;
 }
 .hero-bg-img-container{
-    width: 70vw;
+    width: 96%;
+    /* max-width: 1400px; */
     height: 70vh;
-    background-image: url(../images/stock-1.jpg);
+    justify-self: center;
+    background-image: url(../images/metro-dubai.jpg);
     background-size: cover;
     border-radius: 8vw 0rem 8vw 0rem;
-
+    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.4);
+    
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
     align-items: center;
+    grid-template-columns: 1fr;
+    @media(min-width: 466px){
+        grid-template-columns: repeat(12, 1fr);
+        /* width: 100%; */
+    };
 
 }
 .cta-header-container{
-    grid-column: 1/9;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.44);
+    padding: clamp(12px, 10px + 3vw, 4rem);
+    border-radius:  0rem 1rem 1rem 0rem;
+    text-align: center;
+    font-size: clamp(18px, 8px + 1.3vw, 26px);
+    /* width: 80%; */
+    min-width: 300px;
+    /* width: 100%; */
+
     display: grid;
     justify-items: center;
     gap: 0.7rem;
-
-    color: black;
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 4rem;
-    border-radius:  0rem 1rem 1rem 0rem;
+    grid-column: 1/9;
+    /* @media(min-width: 800px){
+    } */
 }
 .cta-header-container button{
     width: auto;
     padding: 5px 10px;
     border: none;
-    cursor: pointer;
-    transition: 0.4s;
-    /* background-color: red; */
     border-radius: 3px;
-    font-size: 15px;
+    
+    background-color: black;
+    color: rgb(185, 172, 144);
+    transition: 0.8s;
+
+    font-weight: bold;
+    font-size: 17px;
+}
+.cta-header-container button:hover{
+    background-color: rgba(185, 172, 144, 0.3);
+    color: black;
+    cursor: pointer;
+}
+.cta-header-container h1{
+    font-size: clamp(28px, 14px + 1.4vw, 38px);
+
 }
 
 .services-section{
     display: grid;
+    justify-content: center;
     align-content: center;
     margin-top: 4rem;
 }
 .services-section h1{
+    font-size: clamp(20px, 12px + 1.3vw, 26px);
     justify-self: center;
     grid-column: 1/-1;
 }
 .services-container{
     max-width: 1000px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     padding: 3rem;
     justify-content: center;
+    @media(min-width: 800px){grid-template-columns: 1fr 1fr;}
 }
 .services-container div{
     padding: 1rem 1.6rem;
@@ -108,21 +138,44 @@
 
 
 .about-us-container{
-    gap: 3rem;
+    opacity: 0;
+    transition: 1s;
+
+    grid-row-gap: 1rem;
+    grid-column-gap: 3rem;
     justify-self: center;
+    margin-inline: 3%;
     max-width: 1000px;
     display: grid;
-    grid-template-columns: 4fr 3fr;
-    align-items: center;
+    /* align-items: center; */
+    padding: clamp(10px, 8px + 1.6vw, 2rem);
+
+    text-align: justify;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4);
-    padding: 2rem;
     border-radius: 0.4rem;
-    font-size: clamp(12px, 6px + 1vw, 19px);
+    font-size: clamp(15px, 6px + 1vw, 18px);
+    @media(min-width: 800px){grid-template-columns: 2fr 0.8fr};
 }
 .about-us-container h1{
     grid-column: 1/-1;
     justify-self: center;
 }
+.about-us-p-2{
+    grid-column: 2/-1;
+    grid-row: 2/4;
+}
+.about-us-p-2 ul{
+    display: grid;
+    gap: 6px;
+    list-style-position: outside;
+    padding-left: 1rem;
+    text-align: start;
+}
+.about-us-image{
+    border-radius: 3px 3px 3px 0.5rem;
+    box-shadow: 2px -1px 8px 1px rgba(0, 0, 0, 0.2);
+}
+.fade-active{opacity: 1;}
 
 
 .calendly-section h1{
@@ -135,22 +188,49 @@ footer{
     /* position: relative; */
     bottom: 0;
     background-color: black;
+    padding: 1rem;
     /* width: 100%; */
+    color: white;
+    
     display: grid;
+    gap: 2rem;
     justify-content: center;
+    @media(min-width: 800px){grid-template-columns: 1fr auto auto auto 1fr;}
 }
-footer ul{
+
+.locations-container{
+    display: grid;
+    gap: 2px;
+    grid-column: 2/3;
+    list-style-position: inside;
+}
+
+.social-media-container{
     display: grid;
     grid-template-columns: repeat(3, auto);
-    gap: 20px;
+    gap: 1.8rem;
+    align-items: center;
+    justify-items: center;
     padding: 1.2rem;
 }
+
+.other-contacts{
+    display: grid;
+    gap: 1px;
+    grid-column: 4/5;
+    align-items: center;
+}
+.other-contacts a{
+    transition: 0.6s;
+    color: white;
+}
+
 footer ul li a{
     color: white;
     list-style-type: none;
     text-decoration: none;
     transition: 0.6s;
 }
-footer ul li a:hover{
+footer ul li a:hover, .other-contacts a:hover{
     color:aqua;
 }

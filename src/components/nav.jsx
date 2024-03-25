@@ -26,7 +26,8 @@ const NavWrapper = styled.div`
     height: 5rem;
     width: 100%;
     padding-right: 1rem;
-    box-shadow: 0px 0px 1000px 1px rgba(0, 0, 0, 0.4);
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 60px 1px rgba(0, 0, 0, 0.06);
     position: absolute;
     top: 0;
     background-color: white;
@@ -35,14 +36,20 @@ const NavWrapper = styled.div`
         .nav-btn{display: none}
     }
     .nav-btn{
+        background-color: black;
+        color: white;
         border: none;
         border-radius: 3px;
         padding: 6px 8px;
+
+        font-weight: bold;
         font-size: 16px;
-        transition: 0.6s;
+        transition: 0.8s;
     }
     .nav-btn:hover{
         cursor: pointer;
+        background-color: rgb(185, 172, 144, 0.6);
+        color: black;
     }
     @media(max-width: 820px){
         grid-tmplate-columns: auto;
@@ -112,7 +119,7 @@ const MNavwrapper = styled.nav`
     top: 0;
     z-index: 10;
 
-    background-color: grey;
+    background-color: rgba(185, 172, 144, 0.96);
     height: 100vh;
     transition: 1s;
     
@@ -205,7 +212,7 @@ const MNavwrapper = styled.nav`
         right: 0px;
         top: 0px;
         height: 100%;
-        background-color: grey;
+        background-color: rgba(185, 172, 144, 0.9);
         width: 0px;
         z-index: -2;
         transition: 0.4s;
